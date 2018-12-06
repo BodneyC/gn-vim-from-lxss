@@ -15,11 +15,11 @@ funcition gvim() {
 	    arg=$LXSS_ROOT$arg
 	fi
 
-	arg=$(echo $arg | sed 's,/,\\,')
+	arg=$(echo $arg | sed 's,/,\\,g')
 
 	args+=("$arg")
     done
 
-    $GVIM_PROG "$args"
+    $GVIM_PROG $args
 }
 
