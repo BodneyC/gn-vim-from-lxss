@@ -1,6 +1,4 @@
 function UNIX_2_WIN_FP() {
-    PROG=$1
-    shift
     LXSS_ROOT="C:/Users/BenJC/AppData/Local/lxss"
 
     args=()
@@ -17,15 +15,15 @@ function UNIX_2_WIN_FP() {
     done
 
     echo $args
-    $PROG $args &
 }
 
 function nvim() {
-    NVIM_PROG="/mnt/d/Users/BenJC/Documents/4_Software/Neovim/bin/nvim-qt.exe"
-    UNIX_2_WIN_FP $NVIM_PROG $@
+    NVIM_PROG="nvim-qt.exe"
+    $NVIM_PROG $(UNIX_2_WIN_FP $@) & disown
 }
 
 function gvim() {
     GVIM_PROG="/mnt/d/Users/BenJC/Documents/4_Software/gvim/Vim/vim81/gvim.exe"
-    UNIX_2_WIN_FP $GVIM_PROG $@
+    $GVIM_PROG $(UNIX_2_WIN_FP $@) & disown
 }
+
